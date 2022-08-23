@@ -30,7 +30,7 @@ data: new SlashCommand()
             leaveOnEnd: true,
 			leaveOnStop: true,
             spotifyBridge: false,
-			leaveOnEmptyCooldown: 30000,
+			leaveOnEmptyCooldown: 200000,
 		});
 
 		try {

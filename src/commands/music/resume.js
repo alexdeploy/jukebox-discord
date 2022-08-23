@@ -15,7 +15,7 @@ data: new SlashCommand()
             color: 0xb84e44
         }], failIfNotExists: false };
 
-        if (!queue) interaction.reply(errorReply);
+        if (!queue) return interaction.reply(errorReply);
 
         const resumed = queue.setPaused(false);
 

@@ -17,7 +17,7 @@ data: new SlashCommand()
         }], failIfNotExists: false };
 
         // actions
-        if (!queue) interaction.reply(errorReply);
+        if (!queue || !queue.connection) return interaction.reply(errorReply);
 
         let successReply = { embeds: [{
             description: `Paused **[${queue.tracks[0].title}](${queue.tracks[0].url})**`,
