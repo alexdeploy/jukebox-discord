@@ -3,9 +3,11 @@
 
 Jukebox is an advanced music bot for Discord, written in JavaScript and using the lastest features of [discord.js](https://discord.js.org) and [discord-player](https://discord-player.js.org).
 
+Jukebox is **different to any other music bot**. It allows you to controll music with interface buttons and **shows the music status in real time**. The main difference between Jukebox and other bots, is that the last ones replys with messages dirtying the text channels and wasting cache memory, while Jukebox only replies one time with music status and cleans the channel after music stops, reducing data to store in cache memory, to zero.
+
 If you want to develop your own discord bot with Jukebox code, follow the [installation for devs](#installation-for-devs) below.
 
-If you just want to try it, click on [invite to server](https://discord.com/api/oauth2/authorize?client_id=1011658447378448485&permissions=8&scope=bot). (Actually with admin permissions)
+If you just want to try it on your discord server, click on [invite to server](https://discord.com/api/oauth2/authorize?client_id=1011658447378448485&permissions=8&scope=bot). (Actually with admin permissions)
 
 ## Features
 
@@ -19,13 +21,13 @@ If you just want to try it, click on [invite to server](https://discord.com/api/
 
 ⭐ Jukebox only is available in **one voice channel** at the same time.
 
-⭐ Jukebox only responds if it's not connected to any voice channel, or you're connected to the same one.
+⭐ Jukebox only works if it's not connected to any voice channel, or you're connected to the same one.
 
 ⭐...
 
 ## Installation for devs
 
-If you haven't created your bot before, see [how to create your bot](https://discordjs.guide/preparations/setting-up-a-bot-application.html#creating-your-bot) and [how to invite bot to server](https://discordjs.guide/preparations/adding-your-bot-to-servers.html#bot-invite-links).
+If you have not created your bot before, see [how to create your bot](https://discordjs.guide/preparations/setting-up-a-bot-application.html#creating-your-bot) and [how to invite bot to server](https://discordjs.guide/preparations/adding-your-bot-to-servers.html#bot-invite-links).
 
 If you has already registered your bot in [Discord Developer Portal](https://discord.com/developers/docs), you can start the following steps. 
 
