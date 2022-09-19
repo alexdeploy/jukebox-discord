@@ -1,4 +1,4 @@
-
+<img src="src/assets/images/banner.png"/>
 # Jukebox | Discord music bot
 
 Jukebox is an advanced music bot for Discord, written in JavaScript and using the lastest features of [discord.js](https://discord.js.org) and [discord-player](https://discord-player.js.org).
