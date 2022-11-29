@@ -15,6 +15,11 @@ data: new SlashCommand()
             color: 0xb84e44
         }], failIfNotExists: false };
 
+        let notPreviousReply = { embeds: [{
+            description: `There is not previous songs in queue.**`,
+            color: 0xb84e44
+        }], failIfNotExists: false };
+
         if (!queue) return interaction.reply(errorReply);
 
         let successReply = { embeds: [{
@@ -22,8 +27,16 @@ data: new SlashCommand()
             color: 0x44b868
         }], failIfNotExists: false };
 
-        const backed = queue.back();
+        // Reply if there is not previous song
+        if(queue.previousTracks.length == 0){ 
+            return interaction.reply(notPreviousReply)} 
+        else {
+            const backed = queue.back();
+            backed ? interaction.reply(successReply) : interaction.reply(errorReply);
+        }
+
         
-        backed ? interaction.reply(successReply) : interaction.reply(errorReply);
+        
+        
     }
 }

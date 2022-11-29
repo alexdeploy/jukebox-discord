@@ -20,10 +20,15 @@ data: new SlashCommand()
         const resumed = queue.setPaused(false);
 
         let successReply = { embeds: [{
-            description: `Playing **[${queue.tracks[0].title}](${queue.tracks[0].url})**`,
+            description: `Resumed the current song`,
             color: 0x44b868
         }], failIfNotExists: false };
         
+        /* let successReply = { embeds: [{
+            description: `Playing **[${queue.tracks[0].title}](${queue.tracks[0].url})**`,
+            color: 0x44b868
+        }], failIfNotExists: false };
+         */
         resumed ? interaction.reply(successReply) : interaction.reply('There is no song playing.');
     }
 }

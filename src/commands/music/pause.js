@@ -20,7 +20,7 @@ data: new SlashCommand()
         if (!queue || !queue.connection) return interaction.reply(errorReply);
 
         let successReply = { embeds: [{
-            description: `Paused **[${queue.tracks[0].title}](${queue.tracks[0].url})**`,
+            description: `Paused the current song`,
             color: 0x44b868
         }], failIfNotExists: false };
 

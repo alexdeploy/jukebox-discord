@@ -46,7 +46,7 @@ data: new SlashCommand()
 			return interaction.deleteReply();
         }
 
-		search.playlist ? queue.addTracks(search.tracks) : queue.addTrack(search.tracks[0]);
+		/* search.playlist ? queue.addTracks(search.tracks) : queue.addTrack(search.tracks[0]); */
 
 		if(search.playlist) {
             reply = { embeds: [{
@@ -61,7 +61,7 @@ data: new SlashCommand()
             }], failIfNotExists: false };
             queue.addTrack(search.tracks[0]);
         }
-
+		console.log(queue)
 		interaction.editReply(reply);
 
 		if (!queue.playing) await queue.play();

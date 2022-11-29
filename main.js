@@ -4,4 +4,4 @@ require('dotenv').config();
 
 const bot = new Bot();
 
-bot.start(process.env.TOKEN || config.token);
+bot.start(config.token);
