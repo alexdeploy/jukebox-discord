@@ -61,7 +61,7 @@ data: new SlashCommand()
             }], failIfNotExists: false };
             queue.addTrack(search.tracks[0]);
         }
-		console.log(queue)
+		
 		interaction.editReply(reply);
 
 		if (!queue.playing) await queue.play();

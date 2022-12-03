@@ -23,7 +23,7 @@ data: new SlashCommand()
         }], failIfNotExists: false };
 
         const skipped = queue.skip();
-        
+
         skipped ? interaction.reply(successReply) : interaction.reply(errorReply);
     }
 }

@@ -20,23 +20,22 @@ data: new SlashCommand()
             color: 0xb84e44
         }], failIfNotExists: false };
 
-        if (!queue) return interaction.reply(errorReply);
-
         let successReply = { embeds: [{
             description: `Back to previous song`,
             color: 0x44b868
         }], failIfNotExists: false };
 
-        // Reply if there is not previous song
-        if(queue.previousTracks.length == 0){ 
-            return interaction.reply(notPreviousReply)} 
-        else {
-            const backed = queue.back();
-            backed ? interaction.reply(successReply) : interaction.reply(errorReply);
-        }
+        if (!queue) return interaction.reply(errorReply);
 
-        
-        
-        
+        const previous = queue.previousTracks.length > 1; // the previous track size is 1 when the current track is the first track.
+
+        console.log(queue.previousTracks.length)
+
+        if(previous){
+            queue.back();
+            interaction.reply(successReply);
+        } else {
+            interaction.reply(notPreviousReply);
+        }
     }
 }
