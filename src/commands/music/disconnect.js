@@ -8,6 +8,9 @@ data: new SlashCommand()
 
 	async execute(interaction, bot) {
 
+        // interaction member username make personalized message.
+        const member = interaction.member.user.username;
+
         const queue = bot.player.getQueue(interaction.guildId);
 
         let errorReply = { embeds: [{
@@ -21,7 +24,7 @@ data: new SlashCommand()
 		const disconnected = interaction.guild.members.me.voice.disconnect();
 
         let successReply = { embeds: [{
-            description: `👋 Disconnected`,
+            description: `👋 See you soon bro!`,
             color: 0x44b868
         }], failIfNotExists: false };
 
