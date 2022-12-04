@@ -4,7 +4,6 @@ const { Player } = require("discord-player");
 const { Client, GatewayIntentBits, Collection } = require("discord.js");
 
 const { Routes } = require('discord.js');
-const config = require("../../config.json");
 const extractor = require("../plugins/extractor");
 
 const options = {
@@ -52,7 +51,7 @@ class Bot extends Client {
 
         const rest = new REST({ version: '10' }).setToken(token);
 
-        rest.put(Routes.applicationCommands(config.clientId), { body: commands })
+        rest.put(Routes.applicationCommands(process.env.clientId), { body: commands })
             .then(() => console.log('Successfully registered application commands.'))
             .catch(console.error);
 
