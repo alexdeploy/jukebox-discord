@@ -29,8 +29,8 @@ data: new SlashCommand()
 			{ metadata: { channel: interaction.channelId },
 			bufferingTimeout: 500,
             disableVolume: false,
-            leaveOnEnd: true,
-			leaveOnStop: true,
+            leaveOnEnd: false,
+			leaveOnStop: false,
             spotifyBridge: false,
 			leaveOnEmptyCooldown: 200000,
 		});
