@@ -14,6 +14,8 @@ data: new SlashCommand()
 
 	async execute(interaction, bot) {
 
+		try {
+
         const song = interaction.options.getString('track');
 		const guildId = interaction.guildId;
 		let reply;
@@ -62,8 +64,12 @@ data: new SlashCommand()
             queue.addTrack(search.tracks[0]);
         }
 		
-		interaction.editReply(reply);
+		await interaction.editReply(reply);
 
 		if (!queue.playing) await queue.play();
+
+	} catch (error) {
+		await interaction.editReply({ embeds: [{ description: `Error: ${error.message}`, color: 0xb84e44 }] });
+	}
     }
 }

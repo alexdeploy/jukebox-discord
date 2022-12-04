@@ -8,27 +8,33 @@ data: new SlashCommand()
 
 	async execute(interaction, bot) {
 
-        const queue = bot.player.getQueue(interaction.guildId);
+        try{
 
-        let errorReply = { embeds: [{
-            description: `There is **not music playing**`,
-            color: 0xb84e44
-        }], failIfNotExists: false };
+            const queue = bot.player.getQueue(interaction.guildId);
 
-        if (!queue) return interaction.reply(errorReply);
+            let errorReply = { embeds: [{
+                description: `There is **not music playing**`,
+                color: 0xb84e44
+            }], failIfNotExists: false };
 
-        const resumed = queue.setPaused(false);
+            if (!queue) return interaction.reply(errorReply);
 
-        let successReply = { embeds: [{
-            description: `Resumed the current song`,
-            color: 0x44b868
-        }], failIfNotExists: false };
-        
-        /* let successReply = { embeds: [{
-            description: `Playing **[${queue.tracks[0].title}](${queue.tracks[0].url})**`,
-            color: 0x44b868
-        }], failIfNotExists: false };
-         */
-        resumed ? interaction.reply(successReply) : interaction.reply('There is no song playing.');
+            const resumed = queue.setPaused(false);
+
+            let successReply = { embeds: [{
+                description: `Resumed the current song`,
+                color: 0x44b868
+            }], failIfNotExists: false };
+            
+            /* let successReply = { embeds: [{
+                description: `Playing **[${queue.tracks[0].title}](${queue.tracks[0].url})**`,
+                color: 0x44b868
+            }], failIfNotExists: false };
+            */
+            resumed ? interaction.reply(successReply) : interaction.reply('Music is already playing');
+
+        } catch (error) {
+                interaction.reply({ embeds: [{ description: `Error: ${error.message}`, color: 0xb84e44 }] });
+        }
     }
 }

@@ -8,22 +8,28 @@ data: new SlashCommand()
 
 	async execute(interaction, bot) {
 
-        const queue = bot.player.getQueue(interaction.guildId);
+        try {
 
-        let errorReply = { embeds: [{
-            description: `There is **not music playing**`,
-            color: 0xb84e44
-        }], failIfNotExists: false };
+            const queue = bot.player.getQueue(interaction.guildId);
 
-        if (!queue) return interaction.reply(errorReply);
+            let errorReply = { embeds: [{
+                description: `There is **not music playing**`,
+                color: 0xb84e44
+            }], failIfNotExists: false };
 
-        let successReply = { embeds: [{
-            description: `Skipped`,
-            color: 0x44b868
-        }], failIfNotExists: false };
+            if (!queue) return interaction.reply(errorReply);
 
-        const skipped = queue.skip();
+            let successReply = { embeds: [{
+                description: `Skipped`,
+                color: 0x44b868
+            }], failIfNotExists: false };
 
-        skipped ? interaction.reply(successReply) : interaction.reply(errorReply);
+            const skipped = queue.skip();
+
+            skipped ? interaction.reply(successReply) : interaction.reply(errorReply);
+
+        } catch (error) {
+            interaction.reply({ embeds: [{ description: `Error: ${error.message}`, color: 0xb84e44 }] });
+        }
     }
 }
